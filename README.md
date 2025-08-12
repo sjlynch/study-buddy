@@ -42,12 +42,17 @@ pnpm dev:server # Backend only (http://localhost:3001)
 - [ ] **Frontend-Backend Connection**: Wire up the send button in `src/components/Chat.tsx` to call the backend
 - [ ] **API Client**: Complete the `sendMessage` function in `src/services/api.ts`
 - [ ] **Ollama Integration**: Implement the `chatWithOllama` function in `server/ollama.ts`
-- [ ] **Context Integration**: Include relevant study material in your prompts to Ollama
+- [ ] **Context Integration**: Include study material from BOTH sources in your prompts:
+  - JSON study materials (provided in `server/data/json/materials.json`)
+  - PDF content (extract from `server/data/pdf/biology-for-dummies.pdf`)
+- [ ] **PDF Processing**: Implement `processPDFForContext` in `server/pdfParser.ts`
 - [ ] **Error Handling**: Show appropriate error messages when things go wrong
 
 ### Optional Enhancements (If Time Permits)
 - [ ] Streaming responses from Ollama
-- [ ] Better context selection (choose most relevant topic)
+- [ ] Better context selection (choose most relevant topic from JSON and PDF)
+- [ ] Smart PDF content extraction (relevance-based, chunking, summarization)
+- [ ] Context size optimization strategies
 - [ ] Message history persistence
 - [ ] Improved prompt engineering
 - [ ] Loading animations
@@ -67,8 +72,12 @@ study-buddy/
 ├── server/                 # Backend (Express + TypeScript)
 │   ├── index.ts           # Express server (chat endpoint stubbed)
 │   ├── ollama.ts          # Ollama integration (needs implementation)
+│   ├── pdfParser.ts       # PDF parsing utilities (needs implementation)
 │   └── data/
-│       └── materials.json # Biology study materials
+│       ├── json/
+│       │   └── materials.json # Biology study materials
+│       └── pdf/
+│           └── biology-for-dummies.pdf # Additional PDF context
 └── README.md              # You are here!
 ```
 
@@ -79,7 +88,9 @@ study-buddy/
    - `/api/materials` endpoint - returns study materials
    - `getMaterials()` in api.ts - shows how to make API calls
 
-2. **Study Materials**: Three biology topics (photosynthesis, cellular respiration, mitosis) in `server/data/materials.json`
+2. **Study Materials**: 
+   - Three biology topics (photosynthesis, cellular respiration, mitosis) in `server/data/json/materials.json`
+   - A biology textbook PDF in `server/data/pdf/biology-for-dummies.pdf`
 
 3. **UI Components**: Fully styled chat interface and context panel
 
@@ -103,17 +114,29 @@ Look at the working `getMaterials` function in `src/services/api.ts` as an examp
 - Response: `{ "response": "AI response text", ... }`
 
 ### 3. Building Good Prompts
-Include relevant study material in your prompts. For example:
+Include relevant study material from both JSON and PDF sources. For example:
 ```
-Context: [Include relevant study material here]
+Study Materials Context:
+[Include relevant JSON study material here]
+
+Additional Reference Material:
+[Include relevant PDF content here]
+
 Question: [User's question]
 Please answer based on the provided context.
 ```
 
-### 4. Testing Your Solution
-- Try asking about "photosynthesis" - it should use the biology materials
+### 4. PDF Processing Tips
+- The `pdf-parse` library is already installed for you
+- PDF files can be large - think about context window limits
+- Consider different strategies: truncation, chunking, summarization, or relevance scoring
+- The PDF might fail to parse - handle this gracefully
+
+### 5. Testing Your Solution
+- Try asking about "photosynthesis" - it should use both JSON and PDF materials
 - Test with Ollama not running - should show a friendly error
-- Ask about topics not in the materials - should handle gracefully
+- Test PDF parsing failure scenarios - should handle gracefully
+- Ask about topics not in the materials - should still try to use available context
 
 ## 🧪 Testing Checklist
 
@@ -150,7 +173,10 @@ A: No, focus on the core chat functionality.
 A: Yes, but document why you chose them.
 
 **Q: The context is too large for my prompt, what should I do?**
-A: This is intentional! Show us how you handle this challenge.
+A: This is intentional! Show us how you handle this challenge. The PDF adds extra complexity here.
+
+**Q: How should I handle both JSON and PDF content?**
+A: That's up to you! Show us your approach to combining multiple context sources.
 
 ## 🎉 Submission
 

@@ -21,7 +21,7 @@ interface OllamaResponse {
  * 
  * INCOMPLETE IMPLEMENTATION - Candidates must finish this
  * 
- * @param prompt - The prompt to send to Ollama (should include context)
+ * @param prompt - The prompt to send to Ollama (should include context from BOTH JSON and PDF sources)
  * @returns The response from Ollama
  */
 export async function chatWithOllama(prompt: string): Promise<string> {
@@ -33,6 +33,11 @@ export async function chatWithOllama(prompt: string): Promise<string> {
   // 3. Set stream to false for simplicity (streaming is optional/bonus)
   // 4. Handle errors appropriately
   // 5. Return the response text
+  //
+  // IMPORTANT CONTEXT CONSIDERATIONS:
+  // - The prompt may include content from both JSON materials and PDF
+  // - Large contexts might affect response time and quality
+  // - Consider how you structure the prompt for best results
   //
   // Documentation: https://github.com/ollama/ollama/blob/main/docs/api.md
   

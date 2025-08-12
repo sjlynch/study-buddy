@@ -33,14 +33,22 @@ app.post('/api/chat', async (req, res) => {
     }
 
     // TODO: Candidates need to implement the following:
-    // 1. Build a prompt that includes relevant study material context
+    // 1. Build a prompt that includes relevant study material context from BOTH:
+    //    - JSON study materials (already loaded above)
+    //    - PDF content from './data/pdf/biology-for-dummies.pdf' (use pdfParser.ts)
     // 2. Call the Ollama service (complete the ollama.ts implementation)
     // 3. Return the response to the frontend
     
     // HINT: You'll want to:
-    // - Find relevant study material based on the message
-    // - Include that context in your prompt to Ollama
-    // - Handle errors appropriately
+    // - Find relevant study material from JSON based on the message
+    // - Process and include PDF content (but watch context size!)
+    // - Combine both context sources intelligently in your prompt
+    // - Handle errors appropriately (what if PDF parsing fails?)
+    
+    // CHALLENGE: The PDF file may contain a lot of text. How will you:
+    // - Ensure the context doesn't exceed token limits?
+    // - Prioritize the most relevant information?
+    // - Balance between JSON and PDF sources?
     
     // Placeholder response - REPLACE THIS
     res.json({ 
