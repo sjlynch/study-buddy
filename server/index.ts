@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { chatWithOllama } from './ollama.js';
-import studyMaterials from './data/materials.json' with { type: 'json' };
+import studyMaterials from './data/json/materials.json' with { type: 'json' };
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -35,7 +35,7 @@ app.post('/api/chat', async (req, res) => {
     // TODO: Candidates need to implement the following:
     // 1. Build a prompt that includes relevant study material context from BOTH:
     //    - JSON study materials (already loaded above)
-    //    - PDF content from './data/pdf/biology-for-dummies.pdf' (use pdfParser.ts)
+    //    - PDF content from './data/pdf/biology-for-dummies.pdf'
     // 2. Call the Ollama service (complete the ollama.ts implementation)
     // 3. Return the response to the frontend
     

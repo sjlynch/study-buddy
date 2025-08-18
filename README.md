@@ -6,22 +6,11 @@ Welcome! This is a take-home coding assignment for our software engineering posi
 
 Build a working chat interface that:
 1. Connects the frontend to the backend API
-2. Integrates with Ollama (a local LLM) to generate responses
+2. Integrates with Ollama (or an API of your choice) to generate responses
 3. Uses the provided study materials as context for answers
 4. Handles errors gracefully
 
-## 🚀 Quick Setup (5 minutes)
-
-### Prerequisites
-1. **Install Ollama**: https://ollama.com
-2. **Pull a model**: 
-   ```bash
-   ollama pull llama3.2
-   ```
-3. **Verify Ollama is running**:
-   ```bash
-   ollama list  # Should show llama3.2
-   ```
+## 🚀 Quick Setup
 
 ### Start the Application
 ```bash
@@ -45,11 +34,10 @@ pnpm dev:server # Backend only (http://localhost:3001)
 - [ ] **Context Integration**: Include study material from BOTH sources in your prompts:
   - JSON study materials (provided in `server/data/json/materials.json`)
   - PDF content (extract from `server/data/pdf/biology-for-dummies.pdf`)
-- [ ] **PDF Processing**: Implement `processPDFForContext` in `server/pdfParser.ts`
 - [ ] **Error Handling**: Show appropriate error messages when things go wrong
 
 ### Optional Enhancements (If Time Permits)
-- [ ] Streaming responses from Ollama
+- [ ] Streaming responses from LLM
 - [ ] Better context selection (choose most relevant topic from JSON and PDF)
 - [ ] Smart PDF content extraction (relevance-based, chunking, summarization)
 - [ ] Context size optimization strategies
@@ -72,7 +60,6 @@ study-buddy/
 ├── server/                 # Backend (Express + TypeScript)
 │   ├── index.ts           # Express server (chat endpoint stubbed)
 │   ├── ollama.ts          # Ollama integration (needs implementation)
-│   ├── pdfParser.ts       # PDF parsing utilities (needs implementation)
 │   └── data/
 │       ├── json/
 │       │   └── materials.json # Biology study materials
@@ -127,25 +114,13 @@ Please answer based on the provided context.
 ```
 
 ### 4. PDF Processing Tips
-- The `pdf-parse` library is already installed for you
 - PDF files can be large - think about context window limits
-- Consider different strategies: truncation, chunking, summarization, or relevance scoring
-- The PDF might fail to parse - handle this gracefully
-
-### 5. Testing Your Solution
-- Try asking about "photosynthesis" - it should use both JSON and PDF materials
-- Test with Ollama not running - should show a friendly error
-- Test PDF parsing failure scenarios - should handle gracefully
-- Ask about topics not in the materials - should still try to use available context
 
 ## 🧪 Testing Checklist
 
 Before submitting, make sure:
 - [ ] Chat messages send and receive successfully
 - [ ] Responses are relevant to the study materials
-- [ ] Error states are handled (Ollama not running, network errors)
-- [ ] The UI shows loading states while waiting for responses
-- [ ] The app doesn't crash on edge cases
 
 ## 📊 Evaluation Criteria
 
@@ -157,6 +132,7 @@ Before submitting, make sure:
 
 ### We Love to See
 - Thoughtful UX improvements
+- Clever prompt strategies
 - Performance optimizations
 - Code comments where helpful
 - Creative problem solving
@@ -183,12 +159,11 @@ A: That's up to you! Show us your approach to combining multiple context sources
 When you're done:
 1. Make sure both `pnpm dev` and `pnpm dev:server` run without errors
 2. Test the complete flow: send message → get response with context
-3. Commit your changes with clear commit messages
-4. Push to your fork or zip the project
+3. Push to your fork or zip the project
 
-Good luck! We're excited to see your solution. Remember, we're looking for clean, working code that demonstrates good engineering practices. Don't overthink it - a simple, solid solution is better than an over-engineered one.
+Good luck! We're excited to see your solution. Remember, we're looking for clean, working code that demonstrates your expertise in working with LLMs.
 
 ---
 
-**Time Estimate**: 2-4 hours
+**Time Estimate**: 1-3 hours
 **Questions?** Include them in your submission notes.
