@@ -2,13 +2,14 @@
 
 Welcome! This is a take-home coding assignment for our software engineering position. You'll be implementing chat functionality for a Study Buddy application that helps students learn by answering questions about their study materials.
 
-## 🎯 Your Task (2-4 hours)
+## 🎯 Your Task (1-3 hours) - Please do not spend more than 3 hours on this. It is not expected for your solution to be perfectly polished and we want to be respectful of your time. 
 
 Build a working chat interface that:
 1. Connects the frontend to the backend API
 2. Integrates with Ollama (or an API of your choice) to generate responses
 3. Uses the provided study materials as context for answers
-4. Handles errors gracefully
+
+Take as many creative liberties as you want with your implementation! This is a chance for you to demonstrate your familiarity with building LLM based applications and to demonstrate your creativity. 
 
 ## 🚀 Quick Setup
 
@@ -28,22 +29,21 @@ pnpm dev:server # Backend only (http://localhost:3001)
 ## ✅ Requirements Checklist
 
 ### Core Requirements (Must Complete)
-- [ ] **Frontend-Backend Connection**: Wire up the send button in `src/components/Chat.tsx` to call the backend
 - [ ] **API Client**: Complete the `sendMessage` function in `src/services/api.ts`
-- [ ] **Ollama Integration**: Implement the `chatWithOllama` function in `server/ollama.ts`
+- [ ] **AI Integration**: Implement the `chatWithOllama` function in `server/ollama.ts` (If you prefer to take a different approach or use a different LLM feel free to. Create any additional files that you want.)
 - [ ] **Context Integration**: Include study material from BOTH sources in your prompts:
   - JSON study materials (provided in `server/data/json/materials.json`)
   - PDF content (extract from `server/data/pdf/biology-for-dummies.pdf`)
-- [ ] **Error Handling**: Show appropriate error messages when things go wrong
 
-### Optional Enhancements (If Time Permits)
+### Ideas for Enhancements (If Time Permits) (If there is something not mentioned in this list that you would like to implement, feel free to do that.)
 - [ ] Streaming responses from LLM
 - [ ] Better context selection (choose most relevant topic from JSON and PDF)
 - [ ] Smart PDF content extraction (relevance-based, chunking, summarization)
-- [ ] Context size optimization strategies
+- [ ] Context size optimization strategiesß
 - [ ] Message history persistence
 - [ ] Improved prompt engineering
 - [ ] Loading animations
+- [ ] Error Handling: Show appropriate error messages when things go wrong
 
 ## 📁 Project Structure
 
