@@ -159,7 +159,7 @@ A: That's up to you! Show us your approach to combining multiple context sources
 When you're done:
 1. Make sure both `pnpm dev` and `pnpm dev:server` run without errors
 2. Test the complete flow: send message → get response with context
-3. Push to your fork or zip the project
+3. Push to your fork and send the link to the recruiter that you have been communicating with.
 
 Good luck! We're excited to see your solution. Remember, we're looking for clean, working code that demonstrates your expertise in working with LLMs.
 
