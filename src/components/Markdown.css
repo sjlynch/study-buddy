@@ -1,0 +1,20 @@
+.chat-md {
+  line-height: 1.6;
+  color: #333;
+}
+
+.chat-md h1, .chat-md h2, .chat-md h3 { margin: 12px 0 8px 0; }
+.chat-md p { margin: 8px 0; }
+.chat-md ul, .chat-md ol { margin: 8px 0 8px 18px; }
+.chat-md code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 0.95em; }
+
+.chat-codeblock { position: relative; margin: 10px 0; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; }
+.chat-codeblock pre { margin: 0; padding: 12px; overflow: auto; }
+.chat-codeblock .chat-copy-btn { position: absolute; top: 6px; right: 8px; font-size: 12px; background: rgba(255,255,255,0.85); border: 1px solid #ccc; border-radius: 6px; padding: 4px 8px; cursor: pointer; user-select: none; transition: opacity 0.15s ease; }
+.chat-codeblock .chat-copy-btn.copied { background: #d1fadf; border-color: #8ee4a1; }
+
+.chat-codeblock-dark { background: #0f172a; border-color: #1f2937; }
+.chat-codeblock-dark pre { color: #e5e7eb; }
+.chat-codeblock-dark .chat-copy-btn { background: rgba(17,24,39,0.9); color: #e5e7eb; border-color: #374151; }
+
+.chat-codeblock-light { background: #f9fafb; border-color: #e5e7eb; }

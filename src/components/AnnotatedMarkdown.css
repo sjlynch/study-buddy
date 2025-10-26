@@ -1,0 +1,56 @@
+.annot-ref { 
+	position: relative;
+	display: inline;
+	vertical-align: baseline;
+ }
+ 
+.annot-badge { 
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #e5e7eb;
+	color: #374151;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0 2px;
+ }
+
+.annot-tooltip { 
+	display: none;
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translate(-50%, -10px);
+	background: #111827;
+	color: #f9fafb;
+	padding: 10px 12px;
+	border-radius: 10px;
+	min-width: 500px;
+	max-width: 90vw;
+	white-space: pre-wrap;
+	box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+	z-index: 2147483647;
+ }
+
+.annot-ref:hover .annot-tooltip { 
+	display: block;
+ }
+
+.annot-tooltip::before { 
+	content: attr(data-text);
+ }
+
+.annot-tooltip::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	border-width: 6px;
+	border-style: solid;
+	border-color: #111827 transparent transparent transparent;
+ }

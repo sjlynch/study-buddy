@@ -1,3 +1,17 @@
+export type Role = 'user' | 'assistant';
+
+export interface ChatMessage {
+  id: string;
+  role: Role;
+  content: string;
+  chunks?: string[];
+}
+
+export interface OpenAIChatMessage {
+  role: 'system' | Role;
+  content: string;
+}
+
 export interface Message {
   id: string;
   role: 'user' | 'assistant';
