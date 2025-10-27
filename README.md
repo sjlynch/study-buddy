@@ -5,6 +5,8 @@
 # Install dependencies
 pnpm install
 
+Create a new ".env" file in the root directory and set OPENAI_API_KEY=<your_api_key>
+
 # Start both frontend and backend
 pnpm dev:all
 
@@ -16,8 +18,13 @@ pnpm dev:server # Backend only (http://localhost:3001)
 python -m venv venv # in the study-buddy/rag_service folder
 pip install -r requirements.txt
 python server.py # This micro service uses FAISS and fastapi to provide semantic search features for RAG
-
 ```
+**Features:**
+  - Streaming chat with server-sent events
+  - Inline annotations for retrieved context
+  - Markdown rendering
+  - Code blocks with syntax highlighting
+  - rag_service - Ingests chunks and creates document embeddings using FAISS for semantic search.
 
 # Why these libraries (for our SSE React chat)
 
